@@ -1,0 +1,17 @@
+".container": {
+	backgroundColor:"white",
+	exitOnClose: true,
+	navBarHidden: true
+},
+"#button": {
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+	color: "#000",
+	
+    font: {
+        fontFamily:"Helvetica",
+        fontSize: "20dp",
+        fontStyle: "normal",
+        fontWeight: "normal"
+    }	
+} 

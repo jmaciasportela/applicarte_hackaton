@@ -1,0 +1,12 @@
+"Window":{
+	navBarHidden: true
+},
+"#loadingMessage":{
+    font: {
+        fontFamily:"Helvetica",
+        fontSize: "20dp",
+        fontStyle: "normal",
+        fontWeight: "normal"
+    }
+}
+

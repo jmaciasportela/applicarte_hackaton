@@ -1,0 +1,209 @@
+<h1>Utterance</h1>
+
+<p>Utterance lets you use iOS7's Speech Synthesizer in your Titanium project.</p>
+<h2>Before you start</h2>
+
+<ul>
+<li>This is an iOS module only</li>
+<li>You need Titanium SDK 3.1.3.GA or greater</li>
+<li>You need iOS 7 or greater</li>
+<li>Before using this module you first need to install the package. If you need instructions on how to install a 3rd party module please read this installation guide.</li>
+</ul>
+<h2>Download the compiled release</h2>
+
+<p>Download the platform you wish to use:</p>
+<ul>
+<li><a href="https://github.com/benbahrenburg/Utterance/tree/master/dist">iOS Dist</a></li>
+</ul>
+<h2>Building from source?</h2>
+
+<p>If you are building from source you will need to do the following:</p>
+<p>Import the project into Xcode:</p>
+<ul>
+<li>Modify the titanium.xcconfig file with the path to your Titanium installation</li>
+</ul>
+<h2>Setup</h2>
+
+<ul>
+<li>Download the latest release from the releases folder ( or you can build it yourself )</li>
+<li>Install the Utterance module. If you need help here is a "How To" <a href="https://wiki.appcelerator.org/display/guides/Configuring+Apps+to+Use+Modules">guide</a>. </li>
+<li>You can now use the module via the commonJS require method, example shown below.</li>
+</ul>
+<h2>Importing the module using require</h2>
+
+<pre><code>
+var utterance = require('bencoding.utterance');
+</code></pre>
+
+<h2>Working with the Speech Proxy</h2>
+
+<p>The Speech proxy provides access to the native iOS Speech Synthesizer.  A new instance of this is created when you call createSpeech.</p>
+<p><b>Example</b>
+<pre><code></p>
+<p>var speech = utterance.createSpeech();</p>
+<p></code></pre></p>
+<h3>startSpeaking</h3>
+
+<p>The startSpeaking method will begin to speak the text provided.</p>
+<p><b>Parameters</b> </p>
+<p>The startSpeaking method, takes  a dictionary as a parameter with the following fields:</p>
+<p><b>text</b> : String :<b>Required</b></p>
+<p>The text to be spoken</p>
+<p><b>voice</b> : String :<b>Optional</b></p>
+<p>The voice to be used in speaking.  If this parameter is not defined, the proper language will be inferred.</p>
+<p><b>rate</b> : float :<b>Optional</b></p>
+<p>The speed which the text will be read. This is a value between 0 and 1.  You can use the DEFAULT_SPEECH_RATE, MIN_SPEECH_RATE, and MAX_SPEECH_RATE properties as well.</p>
+<p><b>volume</b> : float :<b>Optional</b></p>
+<p>The volume of the reader.  This is a value between 0 and 1.  By default a value of 1 will be used.</p>
+<p><b>preUtteranceDelay</b> : float :<b>Optional</b></p>
+<p>This places a delay at the beginning of the utterance.</p>
+<p><b>postUtteranceDelay</b> : float :<b>Optional</b></p>
+<p>This places a delay at the end of the utterance.</p>
+<p><b>Example</b>
+<pre><code>
+    if(speech.isSpeaking){
+        Ti.API.info("already speaking");
+    }</p>
+<pre><code>speech.startSpeaking({
+    text:"Hello World"
+});
+</code></pre>
+<p></code></pre></p>
+<h3>continueSpeaking</h3>
+
+<p>This method continues reading any speech that has been paused.</p>
+<p><b>Parameters</b></p>
+<p><b>None</b> </p>
+<p><b>Example</b>
+<pre><code>
+    if(speech.isSpeaking){
+        Ti.API.info("Already speaking, nothing to continue");
+        return;
+    } <br />
+    speech.continueSpeaking();<br />
+</code></pre></p>
+<h3>pauseSpeaking</h3>
+
+<p>This method pauses the speaker.  This method has an optional parameter that allows you to pause immediately or at the end of a word.  By default this method will pause immediately.</p>
+<p><b>Example - Without optional parameter</b>
+<pre><code></p>
+<pre><code>speech.pauseSpeaking();
+</code></pre>
+<p></code></pre></p>
+<p><b>Example - Optional parameter pause immediate</b>
+<pre><code></p>
+<pre><code>speech.pauseSpeaking(speech.SPEECH_BOUNDARY_IMMEDIATE);
+</code></pre>
+<p></code></pre></p>
+<p><b>Example - Without optional parameter pause at end of word</b>
+<pre><code></p>
+<pre><code>speech.pauseSpeaking(speech.SPEECH_BOUNDARY_WORD);
+</code></pre>
+<p></code></pre></p>
+<h3>stopSpeaking</h3>
+
+<p>This method stops the speaker.  This method has an optional parameter that allows you to pause immediately or at the end of a word.  By default this method will stop immediately.</p>
+<p><b>Example - Without optional parameter</b>
+<pre><code></p>
+<pre><code>speech.stopSpeaking();
+</code></pre>
+<p></code></pre></p>
+<p><b>Example - Optional parameter pause immediate</b>
+<pre><code></p>
+<pre><code>speech.stopSpeaking(speech.SPEECH_BOUNDARY_IMMEDIATE);
+</code></pre>
+<p></code></pre></p>
+<p><b>Example - Without optional parameter pause at end of word</b>
+<pre><code></p>
+<pre><code>speech.stopSpeaking(speech.SPEECH_BOUNDARY_WORD);
+</code></pre>
+<p></code></pre></p>
+<h2>Properties</h2>
+
+<p><b>DEFAULT_SPEECH_RATE</b></p>
+<p>This property can be used when setting the rate value for the startSpeaking method.  This defaults the rate to the current device/system value.</p>
+<p><b>MIN_SPEECH_RATE</b></p>
+<p>This property can be used when setting the rate value for the startSpeaking method.  This value is the slowest reading rate the device supports.</p>
+<p><b>MAX_SPEECH_RATE</b></p>
+<p>This property can be used when setting the rate value for the startSpeaking method.  This value is the fastest reading rate the device supports.</p>
+<p><b>SPEECH_BOUNDARY_IMMEDIATE</b></p>
+<p>This property can be used when calling the stopSpeaking or pauseSpeaking methods. This will pause or stop the speaker immediately.  This is the default configuration if no parameters are provided for the stopSpeaking or pauseSpeaking methods.</p>
+<p><b>SPEECH_BOUNDARY_WORD</b></p>
+<p>This property can be used when calling the stopSpeaking or pauseSpeaking methods. This will pause or stop the speaker after the current word. </p>
+<h2>Events</h2>
+
+<p><b>started</b></p>
+<p>This event is fired once the speaker has started reading the text.</p>
+<p><b>Example</b>
+<pre><code></p>
+<p>var utterance = require('bencoding.utterance'),
+    speech = utterance.createSpeech();</p>
+<p>speech.addEventListener('started',function(d){
+    Ti.API.info(JSON.stringify(d));
+});</p>
+<p></code></pre></p>
+<p><b>completed</b></p>
+<p>This event is fired once the speaker has finished reading the text.</p>
+<p><b>Example</b>
+<pre><code></p>
+<p>var utterance = require('bencoding.utterance'),
+    speech = utterance.createSpeech();</p>
+<p>speech.addEventListener('completed',function(d){
+    Ti.API.info(JSON.stringify(d));
+});</p>
+<p></code></pre></p>
+<p><b>paused</b></p>
+<p>This event is fired once the speaker has been paused.</p>
+<p><b>Example</b>
+<pre><code></p>
+<p>var utterance = require('bencoding.utterance'),
+    speech = utterance.createSpeech();</p>
+<p>speech.addEventListener('paused',function(d){
+    Ti.API.info(JSON.stringify(d));
+});</p>
+<p></code></pre></p>
+<p><b>canceled</b></p>
+<p>This event is fired once the speaker has been canceled.</p>
+<p><b>Example</b>
+<pre><code></p>
+<p>var utterance = require('bencoding.utterance'),
+    speech = utterance.createSpeech();</p>
+<p>speech.addEventListener('canceled',function(d){
+    Ti.API.info(JSON.stringify(d));
+});</p>
+<p></code></pre></p>
+<p><b>continued</b></p>
+<p>This event is fired once the speaker has been continued.</p>
+<p><b>Example</b>
+<pre><code></p>
+<p>var utterance = require('bencoding.utterance'),
+    speech = utterance.createSpeech();</p>
+<p>speech.addEventListener('continued',function(d){
+    Ti.API.info(JSON.stringify(d));
+});</p>
+<p></code></pre></p>
+<h2>Learn More</h2>
+
+<h3>Examples</h3>
+
+<p>Please check the module's example folder or <a href="https://github.com/benbahrenburg/Utterance/tree/master/example">here</a> for samples on how to use this project.</p>
+<h3>Twitter</h3>
+
+<p>Please consider following the <a href="http://www.twitter.com/benCoding">@benCoding Twitter</a> for updates 
+and more about Titanium.</p>
+<h3>Blog</h3>
+
+<p>For module updates, Titanium tutorials and more please check out my blog at <a href="http://benCoding.com">benCoding.Com</a>.</p>
+<h2>License</h2>
+
+<p>Utterance is available under the Apache 2.0 license.</p>
+<p>Copyright 2013 Benjamin Bahrenburg</p>
+<p>Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at</p>
+<p>http://www.apache.org/licenses/LICENSE-2.0</p>
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</p>

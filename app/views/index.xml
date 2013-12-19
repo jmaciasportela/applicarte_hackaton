@@ -1,0 +1,5 @@
+<Alloy>
+	<Window class="container" id="index">
+		<Button id="button" onClick="doClick" title="GetImageInfo"/>
+	</Window>
+</Alloy>

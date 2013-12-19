@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+provisioning_profiles/development/7201303D-7973-4B55-806A-3EAD5141D42B/appid=com.jmacias.pushgcm
+provisioning_profiles/development/7201303D-7973-4B55-806A-3EAD5141D42B/name=PUSHGCM
+provisioning_profiles/development/7201303D-7973-4B55-806A-3EAD5141D42B/uuid=7201303D-7973-4B55-806A-3EAD5141D42B
+provisioning_profiles/development/875543E9-F442-4758-81B7-93FFBF2C3035/appid=*
+provisioning_profiles/development/875543E9-F442-4758-81B7-93FFBF2C3035/name=THINETIC
+provisioning_profiles/development/875543E9-F442-4758-81B7-93FFBF2C3035/uuid=875543E9-F442-4758-81B7-93FFBF2C3035
+provisioning_profiles/development/997E140B-9281-489E-99AD-8A25742D7C9F/appid=*
+provisioning_profiles/development/997E140B-9281-489E-99AD-8A25742D7C9F/name=THINETIC PUSH
+provisioning_profiles/development/997E140B-9281-489E-99AD-8A25742D7C9F/uuid=997E140B-9281-489E-99AD-8A25742D7C9F
