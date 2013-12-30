@@ -1,7 +1,7 @@
 function WPATH(s) {
     var index = s.lastIndexOf("/");
     var path = -1 === index ? "nl.fokkezb.loading/" + s : s.substring(0, index) + "/nl.fokkezb.loading/" + s.substring(index + 1);
-    return path;
+    return true && 0 !== path.indexOf("/") ? "/" + path : path;
 }
 
 function Controller() {
@@ -14,15 +14,28 @@ function Controller() {
             $.loadingInner.remove($.loadingImages);
             $.loadingImages = null;
         }
+        $.loadingMask.addEventListener("androidback", cancel);
         update(args.message, args.cancelable);
+        $.loadingMask.addEventListener("open", function() {
+            isOpen = true;
+        });
         args = null;
     }
     function update(_message, _cancelable) {
         $.loadingMessage.text = _message || L("loadingMessage", "Loading...");
         cancelable = _cancelable;
     }
-    function cancel() {
-        if (!cancelable) return;
+    function cancel(e) {
+        if (!cancelable) {
+            if (true && "androidback" === e.type) {
+                var intent = Ti.Android.createIntent({
+                    action: Ti.Android.ACTION_MAIN
+                });
+                intent.addCategory(Ti.Android.CATEGORY_HOME);
+                Ti.Android.currentActivity.startActivity(intent);
+            }
+            return;
+        }
         close();
         _.isFunction(cancelable) && cancelable();
         return;
@@ -33,7 +46,12 @@ function Controller() {
         useImages ? $.loadingImages.start() : $.loadingIndicator.show();
     }
     function close() {
-        _close();
+        if (false || isOpen) _close(); else var interval = setInterval(function() {
+            if (isOpen) {
+                _close();
+                clearInterval(interval);
+            }
+        }, 100);
     }
     function _close() {
         $.loadingMask.close();
@@ -89,7 +107,7 @@ function Controller() {
     $.__views.loadingOuter.add($.__views.loadingInner);
     $.__views.loadingIndicator = Ti.UI.createActivityIndicator({
         top: "0dp",
-        style: Ti.UI.iPhone.ActivityIndicatorStyle.BIG,
+        style: Ti.UI.ActivityIndicatorStyle.BIG,
         id: "loadingIndicator"
     });
     $.__views.loadingInner.add($.__views.loadingIndicator);
@@ -117,7 +135,7 @@ function Controller() {
     $.__views.loadingInner.add($.__views.loadingMessage);
     exports.destroy = function() {};
     _.extend($, $.__views);
-    var args = arguments[0] || {}, useImages = false, cancelable = false;
+    var args = arguments[0] || {}, useImages = false, cancelable = false, isOpen = false;
     init();
     exports.hasFocus = true;
     exports.open = open;

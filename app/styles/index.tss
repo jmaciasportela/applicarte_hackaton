@@ -1,17 +1,229 @@
 ".container": {
-	backgroundColor:"white",
+	backgroundColor:"transparent",
 	exitOnClose: true,
-	navBarHidden: true
+	navBarHidden: true,
 },
-"#button": {
+
+"#main":{
 	width: Ti.UI.FILL,
-	height: Ti.UI.SIZE,
-	color: "#000",
-	
+	height: Ti.UI.FILL,	
+	layout: "absolute",
+},
+
+"#wrapper":{
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,	
+	layout: "vertical",
+},
+
+"#header":{
+	backgroundColor: "black",
+	width: Ti.UI.FILL,
+	height: "120dp",		
+	layout:"horizontal"
+},
+
+"#back":{
+	width: "120dp",
+	height: "120dp",	
+	backgroundColor: "transparent",
+	backgroundImage: "/images/home.png"		
+},
+
+"#metainfo":{
+	width: Ti.UI.FILL,
+	height: "120dp",	
+	backgroundColor: "black",	
+	layout: "vertical",
+	opacity: 0.7
+},
+
+"#title":{
+	color: "white",
+	text: '',
+	left: "3dp",
+	width: Ti.UI.FILL,
+	height: "24dp",
     font: {
         fontFamily:"Helvetica",
         fontSize: "20dp",
         fontStyle: "normal",
+        fontWeight: "bold"
+    },
+	opacity: 1    				
+},
+
+"#author":{
+	color: "white",	
+	text: '',
+	left: "3dp",
+	width: Ti.UI.FILL,
+	height: "20dp",
+    font: {
+        fontFamily:"Helvetica",
+        fontSize: "16dp",
+        fontStyle: "normal",
         fontWeight: "normal"
-    }	
-} 
+    },
+	opacity: 1 		
+},
+
+"#technique":{
+	color: "white",	
+	text: '',
+    left: "3dp",
+	width: Ti.UI.FILL,
+	height: "18dp",
+    font: {
+        fontFamily:"Helvetica",
+        fontSize: "14dp",
+        fontStyle: "normal",
+        fontWeight: "normal"
+    },
+	opacity: 1 		
+},
+
+"#year":{
+	color: "white",	
+	text: '',
+	left: "3dp",	
+	width: Ti.UI.FILL,
+	height: "18dp",
+    font: {
+        fontFamily:"Helvetica",
+        fontSize: "14dp",
+        fontStyle: "normal",
+        fontWeight: "normal"
+    },
+	opacity: 1 		
+},
+
+"#resources_bar": {
+	backgroundColor: "white",
+    backgroundGradient: {
+        type: 'linear',
+        startPoint: { x: '0%', y: '0%' },
+        endPoint: { x: '0%', y: '100%' },
+        colors: [ {color: '#ffffff', offset: 0.0}, { color: '#EBEBEB', offset: 0.50 }, { color: '#DBDBDB', offset: 1.0 } ],
+    },    	
+	width: Ti.UI.FILL,
+	height: "50dp",
+	layout: "horizontal",
+},
+
+"#info": {   
+	width: "25%",
+	height: "50dp",
+},
+
+"#info_icon": {
+    backgroundImage: "/images/info_on.png",
+    backgroundSelectedImage: "/images/info.png",    
+	width: "50dp",
+	height: "50dp",
+},
+
+"#videos": {   
+	width: "25%",
+	height: "50dp",
+},
+
+"#videos_icon": {
+    backgroundImage: "/images/videos.png",
+    backgroundSelectedImage: "/images/videos.png",    
+	width: "50dp",
+	height: "50dp",
+},
+
+"#audios": {   
+	width: "25%",
+	height: "50dp",
+},
+
+"#audios_icon": {
+    backgroundImage: "/images/audios.png",
+    backgroundSelectedImage: "/images/audios.png",    
+	width: "50dp",
+	height: "50dp",
+},
+
+"#images": {   
+	width: "25%",
+	height: "50dp",
+},
+
+"#images_icon": {
+    backgroundImage: "/images/images.png",
+    backgroundSelectedImage: "/images/images.png",    
+	width: "50dp",
+	height: "50dp",
+},
+
+"#content": {
+	backgroundColor: "white",
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+},
+
+"#info_content": {
+	backgroundColor: "white",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+},  
+
+"#info_content_title": {
+	top: "20dp",
+	left: "15dp",
+	right: "70dp",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+    font: {
+        fontFamily:"Helvetica",
+        fontSize: "18dp",
+        fontStyle: "normal",
+        fontWeight: "bold"
+    },
+	color: "#0095FF",		
+}, 
+
+"#info_content_tts": {
+    backgroundImage: "/images/tts.png",
+    backgroundSelectedImage: "/images/tts_press.png",    
+	width: "60dp",
+	height: "60dp",
+	top: "2dp",
+	right: "5dp"
+},  
+
+"#info_content_text": {
+	top: "60dp",
+	left: "15dp",
+	right: "15dp",
+	width: Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+    font: {
+        fontFamily:"Helvetica",
+        fontSize: "16dp",
+        fontStyle: "normal",
+        fontWeight: "normal"
+    },
+	color: "black"		
+},  
+
+"#videos_content": {
+	backgroundColor: "white",
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+},  
+
+"#audios_content": {
+	backgroundColor: "white",
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+},  
+
+"#images_content": {
+	backgroundColor: "white",
+	width: Ti.UI.FILL,
+	height: Ti.UI.FILL,
+}

@@ -12,17 +12,23 @@
 
 
 Alloy.Globals.loading = Alloy.createWidget("nl.fokkezb.loading");
-
 Alloy.Globals.applicarte = require('applicarte_REST_client');
+
+
+    
 
 if(OS_ANDROID){
     Alloy.Globals.tts = require("jp.isisredirect.tts");
     Alloy.Globals.tts.addEventListener(Alloy.Globals.tts.TTS_INITOK, function(e){
-        Alloy.Globals.tts.speak("Arrancando applicarte");
+       //Alloy.Globals.tts.speak("Arrancando applicarte");
     });
     Alloy.Globals.tts.addEventListener(Alloy.Globals.tts.TTS_UTTERANCE_COMPLETE, function(e){});
     Alloy.Globals.tts.initTTS();
     
+    // allowBackground: true on Android allows the 
+    // player to keep playing when the app is in the 
+    // background.
+
 }
 else if(OS_IOS){
     /*

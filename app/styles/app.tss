@@ -8,5 +8,8 @@
         fontStyle: "normal",
         fontWeight: "normal"
     }
+},
+"#starwidget":{
+	left: "0dp",	
 }
 

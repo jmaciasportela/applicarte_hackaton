@@ -1,7 +1,7 @@
 function WPATH(s) {
     var index = s.lastIndexOf("/");
     var path = -1 === index ? "nl.fokkezb.loading/" + s : s.substring(0, index) + "/nl.fokkezb.loading/" + s.substring(index + 1);
-    return path;
+    return true && 0 !== path.indexOf("/") ? "/" + path : path;
 }
 
 module.exports = [ {
@@ -13,7 +13,7 @@ module.exports = [ {
     }
 }, {
     isClass: true,
-    priority: 10000.0005,
+    priority: 10000.0006,
     key: "loadingMask",
     style: {
         backgroundColor: "#5000",
@@ -23,7 +23,7 @@ module.exports = [ {
     }
 }, {
     isClass: true,
-    priority: 10000.0006,
+    priority: 10000.0007,
     key: "loadingOuter",
     style: {
         width: Ti.UI.SIZE,
@@ -33,7 +33,7 @@ module.exports = [ {
     }
 }, {
     isClass: true,
-    priority: 10000.0007,
+    priority: 10000.0008,
     key: "loadingInner",
     style: {
         top: "20dp",
@@ -46,7 +46,7 @@ module.exports = [ {
     }
 }, {
     isClass: true,
-    priority: 10000.0008,
+    priority: 10000.0009,
     key: "loadingIndicator",
     style: {
         top: "0dp",
@@ -54,7 +54,7 @@ module.exports = [ {
     }
 }, {
     isClass: true,
-    priority: 10000.001,
+    priority: 10000.0011,
     key: "loadingImages",
     style: {
         top: "0dp",
@@ -62,7 +62,7 @@ module.exports = [ {
     }
 }, {
     isClass: true,
-    priority: 10000.0011,
+    priority: 10000.0012,
     key: "loadingMessage",
     style: {
         top: "20dp",
@@ -71,13 +71,6 @@ module.exports = [ {
         text: L("loadingMessage", "Loading.."),
         color: "#fff",
         textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
-    }
-}, {
-    isClass: true,
-    priority: 10101.0009,
-    key: "loadingIndicator",
-    style: {
-        style: Ti.UI.iPhone.ActivityIndicatorStyle.BIG
     }
 }, {
     isId: true,
@@ -90,5 +83,12 @@ module.exports = [ {
             fontStyle: "normal",
             fontWeight: "normal"
         }
+    }
+}, {
+    isId: true,
+    priority: 100000.0003,
+    key: "starwidget",
+    style: {
+        left: "0dp"
     }
 } ];

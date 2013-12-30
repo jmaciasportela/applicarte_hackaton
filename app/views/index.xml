@@ -1,5 +1,47 @@
 <Alloy>
 	<Window class="container" id="index">
-		<Button id="button" onClick="doClick" title="GetImageInfo"/>
+		<View id="main">
+			<View id="wrapper">
+				<View id="header">
+					<View id="back"/>
+					<View id="metainfo">
+						<Label id="title"/>
+						<Label id="author"/>
+						<Label id="technique"/>
+						<Label id="year"/>
+						<Widget id="starwidget" src="starrating" max='5' initialRating='4
+							
+							'/>
+					</View>
+				</View>
+				<View id="resources_bar">
+					<View id="info">
+						<View id="info_icon"/>
+					</View>
+					<View id="videos">
+						<View id="videos_icon"/>
+					</View>
+					<View id="audios">
+						<View id="audios_icon"/>
+					</View>
+					<View id="images">
+						<View id="images_icon"/>
+					</View>			
+				</View>
+				<View id="content">
+					<ScrollableView id="content_scrollable" showPagingControl="true">
+						<ScrollView id="info_content"> 
+							<Label id="info_content_title"></Label>
+							<View id="info_content_tts"/>
+							<Label id="info_content_text"></Label>								
+						</ScrollView>
+						<View id="videos_content"> </View>
+						<View id="audios_content"> </View>
+						<View id="images_content"> </View>	
+	       			</ScrollableView>
+				</View>									
+			</View>
+			<Require type="widget" src="com.appcelerator.drawer" id="drawer"/>
+		</View>		
 	</Window>
 </Alloy>

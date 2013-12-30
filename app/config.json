@@ -8,6 +8,8 @@
 	"os:ios": {},
 	"os:mobileweb": {},
 	"dependencies": {
-	"nl.fokkezb.loading":"1.6"
+	"nl.fokkezb.loading":"1.6",
+	"starrating": "1.0",
+	"com.appcelerator.drawer":"1.0"
 	}
 }

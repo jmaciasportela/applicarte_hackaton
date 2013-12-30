@@ -1,0 +1,33 @@
+{
+	"#drawer": {
+		left: 0,
+		right: 0,
+		bottom: "-0dp",
+		width: Ti.UI.FILL,
+		height: "80dp",
+		layout: "vertical",
+        opacity: 0.75
+  	},
+
+	"#pulltab": {
+		backgroundImage: "/images/com.appcelerator.drawer/PullTabUp.png",
+	    center: {
+            x: "50%"
+        },
+        top: 0,
+        width: "50dp",
+        height: "50dp",
+        accessibilityLabel: "Drawer",
+        accessibilityValue: "Closed",
+        accessibilityHint: "Click to open the drawer"
+    },
+    
+    "#buttonbar": {
+        left: 0,
+        top: 0,
+        width: Ti.UI.FILL,
+        height: "50dp",
+		backgroundColor: "black",
+        layout: "horizontal"        
+    }
+}
